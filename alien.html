@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio Luiz Araujo</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#030805; --panel:#06120b; --ph:#79f7a4; --dim:#2e8a57; --faint:#143a25; --amber:#ffb347; --red:#ff5a4d;
+  --disp:'VT323','Courier New',monospace; --body:'Share Tech Mono','Courier New',monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;height:100%;background:#000;color:var(--ph);font-family:var(--body);font-size:16px;line-height:1.6;overflow:hidden}
+.crt{position:relative;height:100%;background:radial-gradient(ellipse at center,#07170d 0%,var(--bg) 75%);text-shadow:0 0 6px rgba(121,247,164,.55);animation:flicker 6s infinite}
+.crt::before{content:"";position:absolute;inset:0;z-index:50;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0,rgba(0,0,0,.28) 1px,transparent 1px,transparent 3px)}
+.crt::after{content:"";position:absolute;inset:0;z-index:51;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.75) 100%);box-shadow:inset 0 0 80px rgba(0,0,0,.9)}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.93}94%{opacity:1}96%{opacity:.96}}
+.app{display:grid;grid-template-rows:auto 1fr auto;height:100%;padding:14px 18px;gap:10px;max-width:1180px;margin:0 auto}
+header,footer{border:1px solid var(--dim);padding:6px 12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-size:14px}
+header b{color:var(--ph);font-weight:400}
+.warn{color:var(--amber);text-shadow:0 0 6px rgba(255,179,71,.5)}
+.main{display:grid;grid-template-columns:230px 1fr;gap:14px;min-height:0}
+nav{border:1px solid var(--dim);padding:12px;display:flex;flex-direction:column;gap:4px;align-self:start}
+nav h2{font-family:var(--disp);font-weight:400;font-size:24px;margin:0 0 6px;color:var(--dim)}
+nav button{all:unset;cursor:pointer;padding:4px 8px;color:var(--ph);font:inherit;text-shadow:inherit}
+nav button:hover,nav button:focus-visible{background:var(--ph);color:var(--bg);text-shadow:none}
+nav button[aria-current="true"]{border-left:3px solid var(--amber);color:var(--amber);padding-left:5px}
+nav button[aria-current="true"]:hover{background:var(--amber);color:var(--bg)}
+nav small{margin-top:10px;color:var(--dim);font-size:13px}
+.screen{border:1px solid var(--dim);background:var(--panel);padding:18px 26px;overflow-y:auto;min-height:0;scrollbar-width:thin;scrollbar-color:var(--dim) var(--panel)}
+section{display:none}
+section.on{display:block}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(44px,8vw,84px);line-height:.95;margin:0 0 6px;letter-spacing:2px}
+h3{font-family:var(--disp);font-weight:400;font-size:30px;margin:0;letter-spacing:1px}
+.path{color:var(--dim);margin:0 0 16px}
+p{margin:0 0 12px;max-width:68ch}
+.cursor::after{content:"█";margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.grp{margin:0 0 16px}
+.grp h4{margin:0 0 6px;font-weight:400;color:var(--amber);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{border:1px solid var(--dim);padding:1px 10px}
+.tags span:hover{background:var(--ph);color:var(--bg);text-shadow:none}
+.entry{border-left:2px solid var(--dim);padding:2px 0 2px 16px;margin:0 0 22px}
+.entry .meta{color:var(--dim);margin:2px 0 10px}
+.entry ul{margin:0;padding:0;list-style:none;max-width:70ch}
+.entry li{padding-left:22px;position:relative;margin-bottom:6px}
+.entry li::before{content:">";position:absolute;left:0;color:var(--amber)}
+.status{display:inline-block;border:1px solid var(--amber);color:var(--amber);padding:0 8px;font-size:14px;margin-left:8px;vertical-align:middle;animation:blink 2s steps(1) infinite}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin:18px 0 0}
+.stats div{border:1px solid var(--dim);padding:8px 14px}
+.stats em{display:block;font-style:normal;font-family:var(--disp);font-size:34px;line-height:1}
+.stats span{color:var(--dim);font-size:13px}
+a{color:var(--amber);text-decoration:none;border-bottom:1px dashed var(--amber)}
+a:hover,a:focus-visible{background:var(--amber);color:var(--bg);text-shadow:none}
+.ch{display:grid;grid-template-columns:110px 1fr;gap:4px 12px;max-width:560px}
+.ch dt{color:var(--dim)} .ch dd{margin:0}
+/* boot */
+#boot{position:absolute;inset:0;z-index:40;background:var(--bg);padding:28px;overflow:hidden;transition:opacity .6s}
+#boot pre{margin:0;font:inherit;white-space:pre-wrap}
+#boot button{all:unset;position:absolute;right:22px;bottom:calc(18px + env(safe-area-inset-bottom,0px));cursor:pointer;color:var(--dim);border:1px solid var(--dim);padding:2px 10px}
+#boot button:hover,#boot button:focus-visible{background:var(--ph);color:var(--bg)}
+#boot.off{opacity:0;pointer-events:none}
+@media (max-width:780px){
+  body{font-size:15px}
+  .app{padding:10px;gap:8px}
+  .main{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  nav{flex-direction:row;overflow-x:auto;padding:6px;gap:2px;align-self:stretch}
+  nav h2,nav small{display:none}
+  nav button{white-space:nowrap}
+  nav button[aria-current="true"]{border-left:0;border-bottom:3px solid var(--amber);padding:4px 8px 1px}
+  .screen{padding:14px 16px}
+  .ch{grid-template-columns:1fr}
+  header span:last-child{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .crt{animation:none} .cursor::after,.status{animation:none} #boot{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="crt">
+  <div id="boot" aria-live="polite"><pre id="bootText"></pre><button id="skip">pular [ESC]</button></div>
+
+  <div class="app">
+    <header>
+      <span><b>SEEGSON CORP.</b> // TERMINAL DE PESSOAL</span>
+      <span>ESTAÇÃO SEVASTOPOL · SETOR 4</span>
+      <span id="clock">--:--:--</span>
+    </header>
+
+    <div class="main">
+      <nav aria-label="Menu principal">
+        <h2>DIRETÓRIO</h2>
+        <button data-go="sobre" aria-current="true">1. Identificação</button>
+        <button data-go="skills">2. Módulos técnicos</button>
+        <button data-go="exp">3. Registro de serviço</button>
+        <button data-go="edu">4. Formação</button>
+        <button data-go="lang">5. Idiomas</button>
+        <button data-go="contato">6. Contato</button>
+        <small>Teclas 1–6 também navegam.</small>
+      </nav>
+
+      <main class="screen" id="screen" tabindex="-1">
+
+        <section id="sobre" class="on">
+          <h1>Luiz Felipe Rampazzo Araujo</h1>
+          <p class="path">Cargo atual: estagiário de QA · formação: ADS</p>
+          <p class="cursor">Desenvolvimento e Engenharia de Software.</p>
+          <p>Atuo na área de Tecnologia da Informação com interesse em desenvolvimento e engenharia de software. Contribuo com conhecimentos em programação, testes, APIs, bancos de dados e desenvolvimento de sistemas.</p>
+          <div class="stats">
+            <div><em>2026</em><span>QA na FITec</span></div>
+            <div><em>6+</em><span>linguagens</span></div>
+            <div><em>B2</em><span>inglês, TOEIC</span></div>
+          </div>''
+        </section>
+
+        <section id="skills">
+          <h3>MÓDULOS TÉCNICOS</h3>
+          <p class="path">/sistema/modulos · todos operacionais</p>
+          <div class="grp"><h4>Linguagens</h4><div class="tags"><span>JavaScript</span><span>Python</span><span>Java</span><span>C++</span><span>PHP</span><span>HTML</span><span>CSS</span></div></div>
+          <div class="grp"><h4>Bancos de dados</h4><div class="tags"><span>SQL</span><span>MongoDB</span></div></div>
+          <div class="grp"><h4>Qualidade e testes</h4><div class="tags"><span>Testes de API</span><span>Automação de testes</span><span>Validação</span><span>Playwright</span><span>Postman</span></div></div>
+          <div class="grp"><h4>Ferramentas e processos</h4><div class="tags"><span>Git</span><span>Docker</span><span>Scrum</span><span>Jira</span></div></div>
+        </section>
+
+        <section id="exp">
+          <h3>REGISTRO DE SERVIÇO</h3>
+          <p class="path">/pessoal/historico/profissional</p>
+          <div class="entry">
+            <h3>Estagiário de Quality Assurance (QA) <span class="status">ATIVO</span></h3>
+            <p class="meta">Fundação para Inovações Tecnológicas (FITec) · fevereiro/2026 – atual</p>
+            <ul>
+              <li>Executo testes funcionais, exploratórios, de regressão e unitários em aplicações.</li>
+              <li>Uso bancos de dados para consultas, validação de informações e preparação de dados para diferentes cenários de teste.</li>
+              <li>Trabalho com Git/GitHub e Docker no fluxo de desenvolvimento e testes, com versionamento e ambientes de aplicação.</li>
+              <li>Colaboro com desenvolvedores e analistas na identificação e resolução de problemas.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="edu">
+          <h3>FORMAÇÃO</h3>
+          <p class="path">/pessoal/historico/academico</p>
+          <div class="entry">
+            <h3>Análise e Desenvolvimento de Sistemas</h3>
+            <p class="meta">Fatec Campinas · janeiro/2024 – dezembro/2026</p>
+            <ul><li>Engenharia de software, arquitetura de sistemas, análise de requisitos e identificação de falhas/bugs no nível de código.</li></ul>
+          </div>
+          <div class="entry">
+            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <p class="meta">Senac, ensino médio técnico · janeiro/2020 – dezembro/2023</p>
+            <ul><li>HTML, CSS, PHP, Java e MySQL; lógica de programação e modelagem de banco de dados.</li>
+            <li>Desenvolvimento de sistemas web, manutenção e suporte técnico.</li>
+            <li>Fundamentos de redes de computadores e noções de segurança da informação.</li></ul>
+          </div>
+        </section>
+
+        <section id="lang">
+          <h3>IDIOMAS</h3>
+          <p class="path">/pessoal/comunicacao</p>
+          <div class="entry">
+            <h3>Inglês · B2 (intermediário-avançado)</h3>
+            <p class="meta">TOEIC Listening and Reading · certificação de proficiência</p>
+          </div>
+        </section>
+
+        <section id="contato">
+          <h3>CONTATO</h3>
+          <p class="path">/comunicacao/canal-aberto</p>
+          <p>Abra um canal comigo para falar sobre vagas, projetos ou testes de software.</p>
+          <dl class="ch">
+            <dt>E-mail</dt><dd><a "lfra270705@gmail.com">lfra270705@gmail.com</a></dd>
+            <dt>LinkedIn</dt><dd><a "www.linkedin.com/in/luiz-araujo-70428929b">linkedin.com/in/seu-perfil</a></dd>
+            <dt>GitHub</dt><dd><a "https://github.com/Luiz-Araujo8">github.com/seu-usuario</a></dd>
+          </dl>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>
+      <span>&gt; <span id="cmd">aguardando comando</span><span class="cursor"></span></span>
+      <span class="warn">SINAL ESTÁVEL</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var boot = document.getElementById('boot'), out = document.getElementById('bootText');
+  var lines = [
+    'SEEGSON CORPORATION · SISTEMA OPERACIONAL APOLLO v3.4',
+    'Verificando memória ............ OK',
+    'Montando volume /pessoal ....... OK',
+    'Carregando módulos técnicos .... OK',
+    'Autenticando visitante ......... OK',
+    '',
+    'Terminal pronto. Bem-vindo.'
+  ];
+  var done = false, timer;
+  function finish(){
+    if(done) return; done = true; clearTimeout(timer);
+    boot.classList.add('off');
+    try{ document.getElementById('screen').focus({preventScroll:true}); }catch(e){}
+  }
+  function type(i, j){
+    if(done) return;
+    if(i >= lines.length){ timer = setTimeout(finish, 500); return; }
+    if(j === 0 && i > 0) out.textContent += '\n';
+    if(j < lines[i].length){ out.textContent += lines[i][j]; timer = setTimeout(function(){ type(i, j+1); }, 12); }
+    else timer = setTimeout(function(){ type(i+1, 0); }, 150);
+  }
+  if(reduce){ out.textContent = lines.join('\n'); timer = setTimeout(finish, 600); } else type(0,0);
+  document.getElementById('skip').addEventListener('click', finish);
+
+  var btns = [].slice.call(document.querySelectorAll('nav button'));
+  var secs = [].slice.call(document.querySelectorAll('section'));
+  var cmd = document.getElementById('cmd'), screen = document.getElementById('screen');
+  function go(id){
+    secs.forEach(function(s){ s.classList.toggle('on', s.id === id); });
+    btns.forEach(function(b){ b.setAttribute('aria-current', b.dataset.go === id ? 'true' : 'false'); });
+    cmd.textContent = 'abrir /' + id;
+    screen.scrollTop = 0;
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ go(b.dataset.go); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') finish();
+    var n = parseInt(e.key, 10);
+    if(!e.ctrlKey && !e.metaKey && n >= 1 && n <= btns.length && !boot.classList.contains('off') === false) go(btns[n-1].dataset.go);
+  });
+
+  var clock = document.getElementById('clock');
+  function tick(){ clock.textContent = new Date().toLocaleTimeString('pt-BR'); }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
